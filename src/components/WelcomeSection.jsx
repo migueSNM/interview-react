@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './NavBar';
+import HeroBox from './HeroBox';
 import styled from 'styled-components';
 import backgroundHeader from '../assets/images/Bg_Header.png'
 
@@ -13,6 +14,7 @@ const Header = styled.header`
 const WelcomeSection = () => (
     <Header>
         <NavBar/>
+        <HeroBox/>
     </Header>
 );
 
