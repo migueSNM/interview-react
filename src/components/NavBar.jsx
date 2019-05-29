@@ -1,31 +1,38 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import logo from '../assets/images/logo_full_color.svg';
-import NavButton from './NavButton'
-import colors from '../assets/colors'
+import NavItem from './NavItem'
 
 const Nav = styled.nav`
+    margin: 0 auto;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    
 `
 
-const Buttons = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+const NavList = styled.ul`
+    margin-right: 100px;
+    font-weight: 500;
+    font-size: 
+`
+
+const Img = styled.img`
+    height: 30px;
+    width: auto;
+    margin-left: 100px;
 `
 
 const NavBar = () => (
     <Nav>
-        <img src={logo} alt="Logo"/>
-        <Buttons>
-            <NavButton name={'Inicio'}/>
-            <NavButton name={'Tecnologías'}/>
-            <NavButton name={'Beneficios'}/>
-            <NavButton name={'Requerimientos'}/>
-            <NavButton primary name={'Login'}/>
-        </Buttons>
+        <Img src={logo} alt="Logo"/>
+        <NavList>
+            <NavItem name={'Inicio'}/>
+            <NavItem name={'Tecnologías'}/>
+            <NavItem name={'Beneficios'}/>
+            <NavItem name={'Requerimientos'}/>
+            <NavItem primary name={'Login'}/>
+        </NavList>
     </Nav>
 );
 

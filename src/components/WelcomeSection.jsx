@@ -7,6 +7,7 @@ const Header = styled.header`
     height: 100vh;
     background-image: url(${backgroundHeader});
     background-style: cover;
+    padding-top: 60px;
 `;
 
 const WelcomeSection = () => (
