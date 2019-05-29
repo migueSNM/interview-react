@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import logo from '../assets/images/logo_full_color.svg';
 import NavButton from './NavButton'
+import colors from '../assets/colors'
 
 const Nav = styled.nav`
     display: flex;
@@ -23,6 +24,7 @@ const NavBar = () => (
             <NavButton name={'Tecnologías'}/>
             <NavButton name={'Beneficios'}/>
             <NavButton name={'Requerimientos'}/>
+            <NavButton primary name={'Login'}/>
         </Buttons>
     </Nav>
 );
