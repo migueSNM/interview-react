@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import techImage from '../../assets/images/Ic_Tecnologys.svg';
 import styled from 'styled-components';
-import colors from '../../assets/colors';
 
 const Hero = styled.section`
     display: flex;
@@ -18,11 +17,6 @@ const H1 = styled.h1`
 const Img = styled.img`
 
 `;
-
-const Green = styled.span`
-    color: ${colors.atlantis};
-    font-weight: bold;
-`
 
 const HeroBox = () => (
     <Hero>

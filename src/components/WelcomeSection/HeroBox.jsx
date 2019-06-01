@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import hero from '../../assets/images/Ic_ilustra_Hero.png';
 import styled from 'styled-components';
 import colors from '../../assets/colors';
