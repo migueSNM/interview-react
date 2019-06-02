@@ -9,8 +9,9 @@ const Hero = styled.section`
     margin: 40px 60px 40px 100px;
 `;
 
-const H1 = styled.h1`
+const H3 = styled.h3`
     font-weight: 400;
+    font-size: 180%;
 
 `;
 
@@ -20,7 +21,7 @@ const Img = styled.img`
 
 const HeroBox = () => (
     <Hero>
-        <H1>Estamos buscando<br/>para incorporar gente<br/>increíble para estas<br/>tecnologías:</H1>
+        <H3>Estamos buscando<br/>para incorporar gente<br/>increíble para estas<br/>tecnologías:</H3>
         <Img src={techImage} alt="Technologies"/>
     </Hero>
 );
