@@ -1,7 +1,7 @@
 import React from 'react';
-import hero from '../../assets/images/Ic_ilustra_Hero.png';
+import hero from '../../../../assets/images/Ic_ilustra_Hero.png';
 import styled from 'styled-components';
-import colors from '../../assets/colors';
+import colors from '../../../../assets/colors';
 
 const Hero = styled.div`
     display: flex;

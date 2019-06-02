@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import colors from '../../assets/colors';
+import colors from '../../../../assets/colors';
 import BenefitBox from './BenefitBox';
-import hour from '../../assets/images/Ic_Hour.svg';
-import homeOffice from '../../assets/images/Ic_HomeOffice.svg';
-import workshops from '../../assets/images/Ic_Workshops.svg';
-import drinkSnacks from '../../assets/images/Ic_DrinkSnacks.svg';
-import laptop from '../../assets/images/Ic_laptop.svg';
-import brain from '../../assets/images/Ic_brain.svg';
+import hour from '../../../../assets/images/Ic_Hour.svg';
+import homeOffice from '../../../../assets/images/Ic_HomeOffice.svg';
+import workshops from '../../../../assets/images/Ic_Workshops.svg';
+import drinkSnacks from '../../../../assets/images/Ic_DrinkSnacks.svg';
+import laptop from '../../../../assets/images/Ic_laptop.svg';
+import brain from '../../../../assets/images/Ic_brain.svg';
 
 const Container = styled.section`
     margin: 115px 60px;

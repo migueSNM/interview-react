@@ -3,12 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import RegularFont from './assets/fonts/Montserrat-Regular.ttf';
 import BoldFont from './assets/fonts/Montserrat-Bold.ttf';
 import './App.css';
-import WelcomeSection from './components/WelcomeSection/WelcomeSection';
-import TechSection from './components/TechSection/TechSection';
-import FollowSection from './components/FollowSection/FollowSection';
-import BenefitsSection from './components/BenefitsSection/BenefitsSection';
-import RequirementsSection from './components/RequirementsSection/RequirementsSection';
-import FooterSection from './components/FooterSection/FooterSection';
+import MainPage from './components/MainPage/MainPage';
 
 const GlobalStyles = createGlobalStyle`
   body{
@@ -30,12 +25,7 @@ class App extends Component {
     return (
       <>
         <GlobalStyles/>
-        <WelcomeSection/>
-        <TechSection/>
-        <FollowSection/>
-        <BenefitsSection/>
-        <RequirementsSection/>
-        <FooterSection/>
+        <MainPage/>
       </>
     );
   }

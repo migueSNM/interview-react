@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReqBox from './ReqBox';
-import bullet1 from '../../assets/images/Ic_Bullet_1.svg';
-import bullet2 from '../../assets/images/Ic_Bullet_2.svg';
-import bullet3 from '../../assets/images/Ic_Bullet_3.svg';
+import bullet1 from '../../../../assets/images/Ic_Bullet_1.svg';
+import bullet2 from '../../../../assets/images/Ic_Bullet_2.svg';
+import bullet3 from '../../../../assets/images/Ic_Bullet_3.svg';
 
 const Hero = styled.section`
     display: inline-block;

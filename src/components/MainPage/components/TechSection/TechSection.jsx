@@ -1,5 +1,5 @@
 import React from 'react';
-import techImage from '../../assets/images/Ic_Tecnologys.svg';
+import techImage from '../../../../assets/images/Ic_Tecnologys.svg';
 import styled from 'styled-components';
 
 const Hero = styled.section`

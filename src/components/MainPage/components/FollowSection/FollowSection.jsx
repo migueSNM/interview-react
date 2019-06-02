@@ -1,10 +1,10 @@
 import React from 'react';
-import woloxerImage from '../../assets/images/img_woloxer.png';
+import woloxerImage from '../../../../assets/images/img_woloxer.png';
 import styled from 'styled-components';
-import colors from '../../assets/colors';
+import colors from '../../../../assets/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import Button from '../Button';
+import Button from '../../../Button';
 
 const FollowBox = styled.section`
     margin: 0 40px;

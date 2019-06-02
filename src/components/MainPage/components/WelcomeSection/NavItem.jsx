@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import colors from '../../assets/colors'
+import colors from '../../../../assets/colors'
 
 const Button = styled.li`
     color: ${props => (props.primary && colors.cerulean) || colors.black};

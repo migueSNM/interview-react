@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import colors from '../../assets/colors';
+import colors from '../../../../assets/colors';
 import backgroundHeader from '../../assets/images/Bg_Header.png'
-import Button from '../Button';
+import Button from '../../../Button';
 
 const Container = styled.footer`
     background-image: url(${backgroundHeader});
