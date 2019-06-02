@@ -8,6 +8,7 @@ import TechSection from './components/TechSection/TechSection';
 import FollowSection from './components/FollowSection/FollowSection';
 import BenefitsSection from './components/BenefitsSection/BenefitsSection';
 import RequirementsSection from './components/RequirementsSection/RequirementsSection';
+import FooterSection from './components/FooterSection/FooterSection';
 
 const GlobalStyles = createGlobalStyle`
   body{
@@ -34,6 +35,7 @@ class App extends Component {
         <FollowSection/>
         <BenefitsSection/>
         <RequirementsSection/>
+        <FooterSection/>
       </>
     );
   }

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import colors from '../../assets/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import Button from '../Button';
 
 const FollowBox = styled.section`
     margin: 0 40px;
@@ -52,19 +53,6 @@ const Cerulean = styled.span`
     font-family: 'Montserrat-Bold'
 `
 
-const FollowButton = styled.button`
-    display: block;
-    margin: 0 auto;
-    padding: 10px 100px;
-    background: none;
-    color: ${colors.white};
-    border: 2px solid ${colors.cerulean};
-    border-radius: 30px;
-    font-family: 'Montserrat';
-    font-size: 100%;
-    font-weight: bold;
-`;
-
 //  TODO change twitter icon
 
 const FollowSection = () => (
@@ -75,7 +63,7 @@ const FollowSection = () => (
                 <FontAwesomeIcon icon={faCoffee}/>
                 <Text>@Wolox</Text>
             </TwitterAddress>
-            <FollowButton>Síguenos</FollowButton>
+            <Button text='Síguenos'/>
         </Hero>
         <H2>Trabajamos para<br/><b><Cerulean>convertir</Cerulean> <Atlantis>ideas</Atlantis></b> en<br/>productos</H2>
     </FollowBox>

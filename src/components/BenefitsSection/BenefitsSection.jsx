@@ -1,5 +1,4 @@
 import React from 'react';
-import woloxerImage from '../../assets/images/img_woloxer.png';
 import styled from 'styled-components';
 import colors from '../../assets/colors';
 import BenefitBox from './BenefitBox';
