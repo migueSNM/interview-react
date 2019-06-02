@@ -5,7 +5,7 @@ import BoldFont from './assets/fonts/Montserrat-Bold.ttf';
 import './App.css';
 import WelcomeSection from './components/WelcomeSection/WelcomeSection';
 import TechSection from './components/TechSection/TechSection';
-import BenefitsSection from './components/BenefitsSection/BenefitsSection';
+import FollowSection from './components/FollowSection/FollowSection';
 
 const GlobalStyles = createGlobalStyle`
   body{
@@ -29,7 +29,7 @@ class App extends Component {
         <GlobalStyles/>
         <WelcomeSection/>
         <TechSection/>
-        <BenefitsSection/>
+        <FollowSection/>
       </>
     );
   }

@@ -5,7 +5,7 @@ import colors from '../../assets/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
-const BenefitBox = styled.section`
+const FollowBox = styled.section`
     margin: 0 40px;
     background-color: ${colors.lightGray};
 `;
@@ -67,8 +67,8 @@ const FollowButton = styled.button`
 
 //  TODO change twitter icon
 
-const BenefitsSection = () => (
-    <BenefitBox>
+const FollowSection = () => (
+    <FollowBox>
         <Hero>
             <H1><Atlantis>350 +</Atlantis> <Cerulean>Woloxers</Cerulean></H1>
             <TwitterAddress>
@@ -78,7 +78,7 @@ const BenefitsSection = () => (
             <FollowButton>Síguenos</FollowButton>
         </Hero>
         <H2>Trabajamos para<br/><b><Cerulean>convertir</Cerulean> <Atlantis>ideas</Atlantis></b> en<br/>productos</H2>
-    </BenefitBox>
+    </FollowBox>
 );
 
-export default BenefitsSection;
+export default FollowSection;
