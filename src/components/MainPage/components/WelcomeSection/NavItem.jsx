@@ -1,19 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 import colors from '../../../../assets/colors'
 
-const Button = styled.li`
+const ListItem = styled(Link)`
     color: ${props => (props.primary && colors.cerulean) || colors.black};
     border: ${props => (props.primary && `1px solid ${colors.cerulean}`) || 'none'};
     border-radius: ${props => (props.primary && '30px') || '0'};
     background-color: #00000000;
     display: inline;
     padding: ${props => (props.primary && '10px 60px') || '10px 20px'};
+    text-decoration: none;
 `;
 
 const NavItem = (props) => {
     return (
-        <Button primary={props.primary}>{props.name}</Button>
+        <ListItem primary={props.primary} to={props.to}>
+            {props.name}
+        </ListItem>
     )
 };
 

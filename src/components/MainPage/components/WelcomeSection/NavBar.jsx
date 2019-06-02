@@ -31,7 +31,7 @@ const NavBar = () => (
             <NavItem name={'Tecnologías'}/>
             <NavItem name={'Beneficios'}/>
             <NavItem name={'Requerimientos'}/>
-            <NavItem primary name={'Login'}/>
+            <NavItem primary name={'Login'} to="/login"/>
         </NavList>
     </Nav>
 );

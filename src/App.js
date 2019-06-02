@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import RegularFont from './assets/fonts/Montserrat-Regular.ttf';
 import BoldFont from './assets/fonts/Montserrat-Bold.ttf';
 import './App.css';
 import MainPage from './components/MainPage/MainPage';
+import LoginPage from './components/LoginPage/LoginPage';
 
 const GlobalStyles = createGlobalStyle`
   body{
@@ -23,10 +25,11 @@ const GlobalStyles = createGlobalStyle`
 class App extends Component {
   render() {
     return (
-      <>
+      <Router>
         <GlobalStyles/>
-        <MainPage/>
-      </>
+        <Route path="/" exact component={MainPage} />
+        <Route path="/login/" component={LoginPage} />
+      </Router>
     );
   }
 }
