@@ -6,6 +6,7 @@ import './App.css';
 import WelcomeSection from './components/WelcomeSection/WelcomeSection';
 import TechSection from './components/TechSection/TechSection';
 import FollowSection from './components/FollowSection/FollowSection';
+import BenefitsSection from './components/BenefitsSection/BenefitsSection';
 
 const GlobalStyles = createGlobalStyle`
   body{
@@ -30,6 +31,7 @@ class App extends Component {
         <WelcomeSection/>
         <TechSection/>
         <FollowSection/>
+        <BenefitsSection/>
       </>
     );
   }

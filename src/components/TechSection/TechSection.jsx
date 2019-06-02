@@ -12,7 +12,6 @@ const Hero = styled.section`
 const H3 = styled.h3`
     font-weight: 400;
     font-size: 180%;
-
 `;
 
 const Img = styled.img`
