@@ -1,50 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
+import useForm from '../../hooks/useForm';
 
-class LoginPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+const LoginPage = () =>  {
+  const { values, handleChange, handleSubmit } = useForm(
+    {
       name: '',
       surname: '',
-      email: '',
-      age: 0
-    };
+      email: ''
+    }
+    ,login);
+
+  function login() {
+    console.log(values);
   }
 
-  handleInputChange = (event) => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-  }
-
-  handleSubmit = (event) => {
-    alert('A user was submitted: ' + this.state.name);
-    event.preventDefault();
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" value={this.state.name} onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Surname:
-          <input type="text" name="surname" value={this.state.surname} onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Email:
-          <input type="text" name="email" value={this.state.email} onChange={this.handleInputChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    );
-  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" name="name" value={values.name} onChange={handleChange} />
+      </label>
+      <label>
+        Surname:
+        <input type="text" name="surname" value={values.surname} onChange={handleChange} />
+      </label>
+      <label>
+        Email:
+        <input type="text" name="email" value={values.email} onChange={handleChange} />
+      </label>
+      <button type="submit">Submit</button> 
+    </form>
+  );
 }
 
 export default LoginPage;
