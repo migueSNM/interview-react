@@ -1,45 +1,32 @@
-import React, {Component} from 'react'
+import React from 'react';
+import useProductList from '../../hooks/userProductList';
 
-class ProductsPage extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      products: []
-    };
-  }
+const ProductsPage = () => {
 
-  componentDidMount(){
-    let url = 'http://localhost:3000/products';
-    fetch(url)
-    .then(resp => resp.json())
-    .then(data => {
-      let products = data.map((product, index) => {
-        return (
-          <tr key={index}>
-            <td>{product.id}</td>
-            <td>{product.sku}</td>
-            <td>{product.name}</td>
-            <td>{product.price}</td>
-          </tr>
-        )
-      })
-      this.setState({products: products})
-    })
-  }
+  const { products } = useProductList([]);
 
-  render(){
-    return (
-      <table>
+  return (
+    <table>
+      <tbody>
         <tr>
           <th>ID</th>
           <th>SKU</th>
           <th>Name</th>
           <th>Price</th>
         </tr>
-        {this.state.products}
-      </table>
-    )
-  }
+        {products.map((product, index) => {
+          return (
+            <tr key={index}>
+              <td>{product.id}</td>
+              <td>{product.sku}</td>
+              <td>{product.name}</td>
+              <td>{product.price}</td>
+            </tr>
+          )
+        })}
+      </tbody>
+    </table>
+  )
 }
 
 export default ProductsPage;

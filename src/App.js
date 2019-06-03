@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
 import RegularFont from './assets/fonts/Montserrat-Regular.ttf';
 import BoldFont from './assets/fonts/Montserrat-Bold.ttf';
 import './App.css';
 import MainPage from './components/MainPage/MainPage';
 import LoginPage from './components/LoginPage/LoginPage';
 import ProductsPage from './components/ProductsPage/ProductsPage';
-import rootReducer from './reducers'
 
 const GlobalStyles = createGlobalStyle`
   body{
@@ -25,19 +22,15 @@ const GlobalStyles = createGlobalStyle`
 
   } 
 `
-const store = createStore(rootReducer)
-
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <Router>
-          <GlobalStyles/>
-          <Route path="/" exact component={MainPage} />
-          <Route path="/login/" component={LoginPage} />
-          <Route path="/products/" component={ProductsPage} />
-        </Router>
-      </Provider>
+      <Router>
+        <GlobalStyles/>
+        <Route path="/" exact component={MainPage} />
+        <Route path="/login/" component={LoginPage} />
+        <Route path="/products/" component={ProductsPage} />
+      </Router>
     );
   }
 }
