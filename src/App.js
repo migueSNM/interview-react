@@ -8,6 +8,7 @@ import BoldFont from './assets/fonts/Montserrat-Bold.ttf';
 import './App.css';
 import MainPage from './components/MainPage/MainPage';
 import LoginPage from './components/LoginPage/LoginPage';
+import ProductsPage from './components/ProductsPage/ProductsPage';
 import rootReducer from './reducers'
 
 const GlobalStyles = createGlobalStyle`
@@ -34,6 +35,7 @@ class App extends Component {
           <GlobalStyles/>
           <Route path="/" exact component={MainPage} />
           <Route path="/login/" component={LoginPage} />
+          <Route path="/products/" component={ProductsPage} />
         </Router>
       </Provider>
     );
