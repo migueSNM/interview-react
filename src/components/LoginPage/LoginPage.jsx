@@ -1,5 +1,37 @@
 import React from 'react';
+import styled from 'styled-components';
+import colors from '../../assets/colors';
+import backgroundHeader from '../../assets/images/Bg_Header.png'
 import useForm from '../../hooks/useForm';
+import Button from '../Button';
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(${backgroundHeader});
+  background-style: cover;
+`;
+
+const Label = styled.label`
+  margin-bottom: 20px;
+`;
+
+const Input = styled.input`
+  border: 1px solid ${colors.atlantis};
+  border-radius: 25px;
+  padding: 10px
+  margin-left: 10px;
+`;
+
+const Select = styled.select`
+  border: 1px solid ${colors.atlantis};
+  padding: 50px
+  margin-left: 10px;
+`;
 
 const ages = [...Array(50).keys()];
 
@@ -22,37 +54,37 @@ const LoginPage = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <Form onSubmit={handleSubmit}>
+      <Label>
         Name:
-        <input type="text" name="name" value={values.name} onChange={handleChange} />
-      </label>
-      <label>
+        <Input type="text" name="name" value={values.name} onChange={handleChange} />
+      </Label>
+      <Label>
         Surname:
-        <input type="text" name="surname" value={values.surname} onChange={handleChange} />
-      </label>
-      <label>
+        <Input type="text" name="surname" value={values.surname} onChange={handleChange} />
+      </Label>
+      <Label>
         Email:
-        <input type="text" name="email" value={values.email} onChange={handleChange} />
-      </label>
-      <label>
+        <Input type="text" name="email" value={values.email} onChange={handleChange} />
+      </Label>
+      <Label>
         Age:
-        <select name="age" value="-" onChange={handleChange}>
+        <Select name="age" value="-" onChange={handleChange}>
           <option value="-">-</option>
           {ages.map(age => <option key={age} value={age + 18}>{age + 18}</option>)}
-        </select>
-      </label>
-      <label>
+        </Select>
+      </Label>
+      <Label>
         I have read and agree to the Terms and Conditions
-        <input
+        <Input
           name="terms"
           type="checkbox"
           checked={values.terms}
           onChange={handleChange} />
-      </label>
+      </Label>
 
-      <button type="submit">Submit</button>
-    </form>
+      <Button type="submit" primary text="Submit"/>
+    </Form>
   );
 }
 
