@@ -85,6 +85,7 @@ const LoginPage = (props) => {
       try{
         const userResponse = await axios.post(`http://localhost:3000/sign_in`, { user });
         dispatch({ type: 'setUser', data: userResponse.data.user });
+        dispatch({ type: 'singin'})
         props.history.push('/products');
       } catch (error){
         console.log(error)

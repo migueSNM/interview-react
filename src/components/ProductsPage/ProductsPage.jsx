@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { Redirect } from "react-router-dom";
 import colors from '../../assets/colors';
 import {AppContext} from '../../appContext';
 
@@ -14,7 +15,7 @@ const Input = styled.input`
 const ProductsPage = () => {
 
   const {
-    state: { products },
+    state: { products, isAuth },
     dispatch,
   } = useContext(AppContext);
   const [search, setSearch] = useState('');
@@ -42,8 +43,9 @@ const ProductsPage = () => {
     return products;
   });
 
-  return (
-    <div>
+  if(isAuth){
+    return (
+      <div>
       <Input type="text" id="searchText" onChange={handleSearchChange} placeholder="Search for products..."></Input>
       <table>
         <tbody>
@@ -66,7 +68,10 @@ const ProductsPage = () => {
         </tbody>
       </table>
     </div>
-  )
+    )
+  } else {
+    return (<Redirect to="/login"/>)
+  }
 }
 
 export default ProductsPage;

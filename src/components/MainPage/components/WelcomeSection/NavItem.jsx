@@ -15,7 +15,7 @@ const ListItem = styled(Link)`
 
 const NavItem = (props) => {
     return (
-        <ListItem primary={props.primary} to={props.to}>
+        <ListItem primary={props.primary ? 1 : 0} to={props.to || ''}>
             {props.name}
         </ListItem>
     )
