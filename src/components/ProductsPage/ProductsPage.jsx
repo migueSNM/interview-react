@@ -19,13 +19,16 @@ const ProductsPage = () => {
   } = useContext(AppContext);
   const [search, setSearch] = useState('');
 
-  useEffect(async () => {
-    try{
-      const { data } = await axios.get('http://localhost:3000/products');
-      dispatch({ type: 'setProducts', data });
-    } catch (error){
-      console.log(error)
+  useEffect(() => {
+    async function fetchData() {
+      try{
+        const { data } = await axios.get('http://localhost:3000/products');
+        dispatch({ type: 'setProducts', data });
+      } catch (error){
+        console.log(error)
+      }
     }
+    fetchData();
   }, []);
 
   const handleSearchChange = (event) => {

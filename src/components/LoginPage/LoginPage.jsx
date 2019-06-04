@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import colors from '../../assets/colors';
 import backgroundHeader from '../../assets/images/Bg_Header.png'
 import useForm from '../../hooks/useForm';
 import Button from '../Button';
+import { AppContext } from '../../appContext';
 
 const Form = styled.form`
   display: flex;
@@ -52,9 +53,11 @@ const LoginPage = (props) => {
     }
     , login);
 
+    const {
+      dispatch,
+    } = useContext(AppContext);
+
   async function login() {
-    console.log(user);
-    
     let validInfo = true;
     if(user.name === ''){
       validInfo = false;
@@ -81,7 +84,7 @@ const LoginPage = (props) => {
     if(validInfo){
       try{
         const userResponse = await axios.post(`http://localhost:3000/sign_in`, { user });
-        console.log(userResponse);
+        dispatch({ type: 'setUser', data: userResponse.data.user });
         props.history.push('/products');
       } catch (error){
         console.log(error)
