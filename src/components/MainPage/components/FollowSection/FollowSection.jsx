@@ -14,8 +14,9 @@ const FollowBox = styled.section`
 const Hero = styled.div`
     background-image: url(${woloxerImage});
     background-size: cover;
-    width: 750px;
-    height: 422px;
+    width: 55%;
+    height: auto;
+    padding-bottom: 40px;
     display: inline-block;
     color: ${colors.white};
 `;

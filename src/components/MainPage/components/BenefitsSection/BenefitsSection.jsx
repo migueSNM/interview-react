@@ -11,7 +11,9 @@ import brain from '../../../../assets/images/Ic_brain.svg';
 
 const Container = styled.section`
     margin: 115px 60px;
+    padding-bottom: 20px;
     display: inline-block;
+    box-shadow: 0 4px 2px -2px #00000010;
 `;
 
 const H3 = styled.h3`

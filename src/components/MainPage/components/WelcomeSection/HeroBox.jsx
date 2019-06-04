@@ -12,16 +12,18 @@ const Hero = styled.div`
 
 const H1 = styled.h1`
     font-weight: 400;
+    margin-bottom: 150px;
 
 `;
 
 const Img = styled.img`
     transform: scaleX(-1);
+    margin-right: 100px;
 `;
 
 const Green = styled.span`
     color: ${colors.atlantis};
-    font-weight: bold;
+    font-family: 'Montserrat-Bold';
 `
 
 const HeroBox = () => (
