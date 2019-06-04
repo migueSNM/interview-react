@@ -7,6 +7,7 @@ import './App.css';
 import MainPage from './components/MainPage/MainPage';
 import LoginPage from './components/LoginPage/LoginPage';
 import ProductsPage from './components/ProductsPage/ProductsPage';
+import { AppContextProvider } from './appContext'
 
 const GlobalStyles = createGlobalStyle`
   body{
@@ -26,10 +27,12 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <GlobalStyles/>
-        <Route path="/" exact component={MainPage} />
-        <Route path="/login/" component={LoginPage} />
-        <Route path="/products/" component={ProductsPage} />
+        <AppContextProvider>
+          <GlobalStyles />
+          <Route path="/" exact component={MainPage} />
+          <Route path="/login/" component={LoginPage} />
+          <Route path="/products/" component={ProductsPage} />
+        </AppContextProvider>
       </Router>
     );
   }

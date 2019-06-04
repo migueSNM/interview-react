@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 import colors from '../../assets/colors';
-import useProductList from '../../hooks/userProductList';
-import Button from '../Button';
+import {AppContext} from '../../appContext';
 
 const Input = styled.input`
   border: 1px solid ${colors.atlantis};
@@ -11,27 +11,37 @@ const Input = styled.input`
   margin-left: 10px;
 `;
 
-const SearchBar = styled.nav`
-  display: flex;
-  margin: 20px 0;
-`;
-
-
 const ProductsPage = () => {
 
-  let searchProduct = '';
-  let { products } = useProductList([],searchProduct);
+  const {
+    state: { products },
+    dispatch,
+  } = useContext(AppContext);
+  const [search, setSearch] = useState('');
+
+  useEffect(async () => {
+    try{
+      const { data } = await axios.get('http://localhost:3000/products');
+      dispatch({ type: 'setProducts', data });
+    } catch (error){
+      console.log(error)
+    }
+  }, []);
 
   const handleSearchChange = (event) => {
-    searchProduct = event.target.value;
+    setSearch(event.target.value)
   };
+
+  const productsFiltered = products.filter(product => {
+    if(search !== ''){
+      return product.name.toLowerCase().includes(search.toLowerCase())
+    }
+    return products;
+  });
 
   return (
     <div>
-      <SearchBar>
-        <Input type="text" id="searchText" onChange={handleSearchChange} placeholder="Search for products..."></Input>
-        <Button primary text="Search" />
-      </SearchBar>
+      <Input type="text" id="searchText" onChange={handleSearchChange} placeholder="Search for products..."></Input>
       <table>
         <tbody>
           <tr>
@@ -40,7 +50,7 @@ const ProductsPage = () => {
             <th>Name</th>
             <th>Price</th>
           </tr>
-          {products.map((product, index) => {
+          {productsFiltered.map((product, index) => {
             return (
               <tr key={index}>
                 <td>{product.id}</td>
