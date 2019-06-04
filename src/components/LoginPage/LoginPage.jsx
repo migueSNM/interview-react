@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 import colors from '../../assets/colors';
 import backgroundHeader from '../../assets/images/Bg_Header.png'
 import useForm from '../../hooks/useForm';
@@ -35,8 +36,13 @@ const Select = styled.select`
 
 const ages = [...Array(50).keys()];
 
-const LoginPage = () => {
-  const { values, handleChange, handleSubmit } = useForm(
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+const LoginPage = (props) => {
+  const { user, handleChange, handleSubmit } = useForm(
     {
       name: '',
       surname: '',
@@ -46,31 +52,61 @@ const LoginPage = () => {
     }
     , login);
 
-  function login() {
-    //  TODO validar datos
-    //  TODO post de usuario si los datos son válidos y dirigir a /products
-    //  TODO redirigir a logging si los datos no son válidos
-    console.log(values);
+  async function login() {
+    console.log(user);
+    
+    let validInfo = true;
+    if(user.name === ''){
+      validInfo = false;
+      alert('Completar nombre');
+    }
+    if(user.surname === ''){
+      validInfo = false;
+      alert('Completar apellido')
+    }
+    if(!validateEmail(user.email))
+    {
+      validInfo = false;
+      alert('Completar email')      
+    }
+    if(user.email === '-' || user.email === 0){
+      validInfo = false;
+      alert('Completar apellido')
+    }
+    if(!user.terms){
+      validInfo = false;
+      alert('Aceptar términos y condiciones');
+    }
+
+    if(validInfo){
+      try{
+        const userResponse = await axios.post(`http://localhost:3000/sign_in`, { user });
+        console.log(userResponse);
+        props.history.push('/products');
+      } catch (error){
+        console.log(error)
+      }
+    }
   }
 
   return (
     <Form onSubmit={handleSubmit}>
       <Label>
         Name:
-        <Input type="text" name="name" value={values.name} onChange={handleChange} />
+        <Input type="text" name="name" value={user.name} onChange={handleChange} />
       </Label>
       <Label>
         Surname:
-        <Input type="text" name="surname" value={values.surname} onChange={handleChange} />
+        <Input type="text" name="surname" value={user.surname} onChange={handleChange} />
       </Label>
       <Label>
         Email:
-        <Input type="text" name="email" value={values.email} onChange={handleChange} />
+        <Input type="text" name="email" value={user.email} onChange={handleChange} />
       </Label>
       <Label>
         Age:
         <Select name="age" value="-" onChange={handleChange}>
-          <option value="-">-</option>
+          <option value="-">{user.age || '-'}</option>
           {ages.map(age => <option key={age} value={age + 18}>{age + 18}</option>)}
         </Select>
       </Label>
@@ -79,7 +115,7 @@ const LoginPage = () => {
         <Input
           name="terms"
           type="checkbox"
-          checked={values.terms}
+          checked={user.terms}
           onChange={handleChange} />
       </Label>
 
