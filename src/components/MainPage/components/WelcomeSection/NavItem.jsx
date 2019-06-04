@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 import colors from '../../../../assets/colors'
 
 const ListItem = styled(Link)`

@@ -19,7 +19,7 @@ const Img = styled.img`
 `;
 
 const HeroBox = () => (
-    <Hero>
+    <Hero id="technologies">
         <H3>Estamos buscando<br/>para incorporar gente<br/>increíble para estas<br/>tecnologías:</H3>
         <Img src={techImage} alt="Technologies"/>
     </Hero>

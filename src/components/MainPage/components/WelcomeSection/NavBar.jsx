@@ -8,7 +8,6 @@ const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 `
 
 const NavList = styled.ul`
@@ -28,9 +27,9 @@ const NavBar = () => (
         <Img src={logo} alt="Logo"/>
         <NavList>
             <NavItem name={'Inicio'}/>
-            <NavItem name={'Tecnologías'}/>
-            <NavItem name={'Beneficios'}/>
-            <NavItem name={'Requerimientos'}/>
+            <NavItem name={'Tecnologías'} to="#technologies"/>
+            <NavItem name={'Beneficios'} to="#benefits"/>
+            <NavItem name={'Requerimientos'} to="#requirements"/>
             <NavItem primary name={'Login'} to="/login"/>
         </NavList>
     </Nav>

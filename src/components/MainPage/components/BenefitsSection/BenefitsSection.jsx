@@ -28,7 +28,7 @@ const Cerulean = styled.span`
 `;
 
 const BenefitsSection = () => (
-    <Container>
+    <Container id="benefits">
         <H3>Entre los beneficios que ofrecemos se encuentran <Cerulean>;)</Cerulean></H3>
         <BenefitBox text="Flexibilidad Horaria" img={hour}/>
         <BenefitBox text="Home Office" img={homeOffice}/>

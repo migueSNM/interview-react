@@ -26,7 +26,7 @@ const ReqContainer = styled.div`
 `;
 
 const HeroBox = () => (
-    <Hero>
+    <Hero id="requirements">
         <H3>Requerimientos</H3>
         <ReqContainer>
             <ReqBox bullet={bullet1} text="Estudiantes avanzados o recibidos de carreras del rubro informático, sistemas o electrónicos"/>
