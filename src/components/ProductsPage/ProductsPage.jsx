@@ -83,8 +83,7 @@ const ProductsPage = () => {
 
   const localAuth = localStorage.getItem('isAuth');
 
-  if (true) {
-
+  if (isAuth || localAuth) {
     return (
       <div>
         <NavBar>
