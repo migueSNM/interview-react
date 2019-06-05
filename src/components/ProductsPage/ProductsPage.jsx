@@ -3,7 +3,13 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { Redirect } from "react-router-dom";
 import colors from '../../assets/colors';
+import backgroundHeader from '../../assets/images/Bg_Header.png'
 import { AppContext } from '../../appContext';
+
+const PageContainer = styled.div`
+  background-image: url(${backgroundHeader});
+  background-style: cover;
+`;
 
 const NavBar = styled.div`
   display: flex;
@@ -29,11 +35,12 @@ const Container = styled.div`
   margin-top: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 `;
 
 const ProductBox = styled.div`
   text-align: left;
+  margin-right: 66px;
 `;
 
 const Img = styled.img`
@@ -85,7 +92,7 @@ const ProductsPage = () => {
 
   if (isAuth || localAuth) {
     return (
-      <div>
+      <PageContainer>
         <NavBar>
           <H1>Products</H1>
           <Input type="text" id="searchText" onChange={handleSearchChange} placeholder="Search for products..."></Input>
@@ -104,7 +111,7 @@ const ProductsPage = () => {
           })}
         </Container>
 
-      </div>
+      </PageContainer>
     )
   } else {
     return (<Redirect to="/login" />)
