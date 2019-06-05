@@ -7,6 +7,10 @@ import useForm from '../../hooks/useForm';
 import Button from '../Button';
 import { AppContext } from '../../appContext';
 
+const Header = styled.h1`
+  color: ${colors.atlantis}
+`;
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -16,23 +20,24 @@ const Form = styled.form`
   height: 100vh;
   background-image: url(${backgroundHeader});
   background-style: cover;
-`;
-
-const Label = styled.label`
-  margin-bottom: 20px;
+  font-size: 80%;
 `;
 
 const Input = styled.input`
   border: 1px solid ${colors.atlantis};
   border-radius: 25px;
-  padding: 10px
-  margin-left: 10px;
+  padding-left: 20px;
+  width: ${props => props.type === 'text' ? '270px' : 'auto'};
+  height: ${props => props.type === 'text' ? '44px' : 'auto'};
+  margin-bottom: 20px;
 `;
 
 const Select = styled.select`
   border: 1px solid ${colors.atlantis};
-  padding: 50px
-  margin-left: 10px;
+  background-color: transparent;
+  height: 44px;
+  width: 62px;
+  margin-bottom: 20px;
 `;
 
 const ages = [...Array(50).keys()];
@@ -72,7 +77,7 @@ const LoginPage = (props) => {
       validInfo = false;
       alert('Completar email')      
     }
-    if(user.email === '-' || user.email === 0){
+    if(user.age === 'Age' || user.age === 0){
       validInfo = false;
       alert('Completar apellido')
     }
@@ -95,33 +100,22 @@ const LoginPage = (props) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Label>
-        Name:
-        <Input type="text" name="name" value={user.name} onChange={handleChange} />
-      </Label>
-      <Label>
-        Surname:
-        <Input type="text" name="surname" value={user.surname} onChange={handleChange} />
-      </Label>
-      <Label>
-        Email:
-        <Input type="text" name="email" value={user.email} onChange={handleChange} />
-      </Label>
-      <Label>
-        Age:
-        <Select name="age" value="-" onChange={handleChange}>
-          <option value="-">{user.age || '-'}</option>
+      <Header>Hi!</Header>
+        <Input type="text" name="name" placeholder="Name" value={user.name} onChange={handleChange} />
+        <Input type="text" name="surname" placeholder="Surname" value={user.surname} onChange={handleChange} />
+        <Input type="text" name="email" placeholder="Email"value={user.email} onChange={handleChange} />
+        <Select name="age" value="Age" onChange={handleChange}>
+          <option value="">{user.age || 'Age'}</option>
           {ages.map(age => <option key={age} value={age + 18}>{age + 18}</option>)}
         </Select>
-      </Label>
-      <Label>
-        I have read and agree to the Terms and Conditions
+      <label>
         <Input
           name="terms"
           type="checkbox"
           checked={user.terms}
           onChange={handleChange} />
-      </Label>
+        Accept terms and conditions
+      </label>
 
       <Button type="submit" primary text="Submit"/>
     </Form>
