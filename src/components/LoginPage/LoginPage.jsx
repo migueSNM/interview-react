@@ -58,9 +58,10 @@ const LoginPage = (props) => {
     }
     , login);
 
-    const {
-      dispatch,
-    } = useContext(AppContext);
+  const {
+    dispatch,
+  } = useContext(AppContext);
+  localStorage.setItem('isAuth', 0);
 
   async function login() {
     let validInfo = true;
@@ -89,6 +90,7 @@ const LoginPage = (props) => {
     if(validInfo){
       try{
         const userResponse = await axios.post(`http://localhost:3000/sign_in`, { user });
+        localStorage.setItem('isAuth', 1);
         dispatch({ type: 'setUser', data: userResponse.data.user });
         dispatch({ type: 'singin'})
         props.history.push('/products');

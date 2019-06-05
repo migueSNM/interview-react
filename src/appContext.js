@@ -17,11 +17,13 @@ const reducer = (state, { type, data }) => {
         user: data,
       };
     case 'singin':
+      localStorage.setItem('isAuth', 1);
       return {
         ...state,
         isAuth: true,
       };
     case 'singout':
+      localStorage.setItem('isAuth', 0);
       return {
         ...state,
         isAuth: false,
